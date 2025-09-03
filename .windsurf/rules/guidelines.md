@@ -1,2 +1,5 @@
-Use this best pratices for Angular: docs-ai/knowledge-base/angular.md
-Use this Angular instructions as a reference: https://angular.dev/context/llm-files/llms-full.txt
+- Use this best pratices for Angular: docs-ai/knowledge-base/angular.md
+- Use this Angular instructions as a reference: https://angular.dev/context/llm-files/llms-full.txt
+- Use this Daisy UI instructions as a reference: https://daisyui.com/llms.txt
+- Use this Tailwind  v4 instructions as a reference: https://raw.githubusercontent.com/rgfx/tailwind-llms/refs/heads/main/tailwind-llms.txt
+- Use this project documentation as a reference: docs-ai/knowledge-base/project.md
