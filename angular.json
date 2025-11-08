@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "course-request": {
+    "roadmap": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -56,10 +56,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "course-request:build:production"
+              "buildTarget": "roadmap:build:production"
             },
             "development": {
-              "buildTarget": "course-request:build:development"
+              "buildTarget": "roadmap:build:development"
             }
           },
           "defaultConfiguration": "development"
