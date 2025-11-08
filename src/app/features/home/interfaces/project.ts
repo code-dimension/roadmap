@@ -3,6 +3,7 @@ export interface Project {
   description: string;
   status: string;
   type: ProjectType;
+  link?: string;
 }
 
 export enum ProjectType {

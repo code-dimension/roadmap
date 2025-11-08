@@ -35,6 +35,12 @@ const typeLabelMap = {
       <h3 class="text-xl font-bold mb-2 text-white">{{ project().title }}</h3>
       <p class="text-gray-300 mb-4">{{ project().description }}</p>
 
+      @if (project().link) {
+        <div class="mb-4">
+          <a class="link" [href]="project().link">Saiba mais sobre esse produto</a>
+        </div>
+      }
+
       <div
         class="mb-2"
         [ngClass]="statusClass()"

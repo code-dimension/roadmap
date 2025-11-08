@@ -25,6 +25,7 @@ export class HomePage {
         'Curso focado em ensinar de forma profunda e prática como implementar testes unitários, testes de integração e testes de e2e com Angular.',
       status: ProjectStatus.Completed,
       type: ProjectType.Course,
+      link: 'https://www.codedimension.com.br/cursos/testes-automatizados/?utm_source=roadmap&utm_medium=organic&utm_campaign=roadmap'
     },
     {
       title: 'Ebook Engenharia de Prompts',
@@ -32,6 +33,7 @@ export class HomePage {
         'Ebook focado em ensinar como criar e utilizar prompts eficientes que tornam os resultados com IA muito mais precisos e relevantes.',
       status: ProjectStatus.Completed,
       type: ProjectType.Ebook,
+      link: 'https://hotmart.com/pt-br/marketplace/produtos/dominando-engenharia-de-prompts/B102475688V?sck=roadmap-website_organic'
     },
     {
       title: 'Curso Angular Moderno',
@@ -39,6 +41,7 @@ export class HomePage {
         'Curso focado em ensinar Angular 20+ de forma didática e prática, assim como todas os padrões e melhores práticas que envolvem Angular.',
       status: ProjectStatus.InProgress,
       type: ProjectType.Course,
+      link: 'https://www.codedimension.com.br/cursos/angular-moderno/?utm_source=roadmap&utm_medium=organic&utm_campaign=roadmap'
     },
     {
       title: 'Curso Formulários com Angular',
