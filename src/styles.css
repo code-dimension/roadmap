@@ -2,3 +2,29 @@
 @plugin "daisyui" {
   themes: light;
 }
+
+/* Custom styles for accent color #6657eb */
+:root {
+  --accent-color: #6657eb;
+}
+
+/* Apply accent color to navigation bar */
+nav {
+  background-color: white;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+nav h1 {
+  color: var(--accent-color);
+}
+
+/* Ensure consistent background color */
+body {
+  background-color: #fff;
+}
+
+/* Project card status color for accent */
+.status-in-progress {
+  background-color: #6657eb;
+  color: white;
+}

@@ -1,7 +1,6 @@
 # Overview
 
-Create a base structure for a an app to manage course requests from my customers. This app will be used to create a course requests and 
-also able customer voting for the course request that they are interested.
+Create a base structure for a an app to manage projects roadmap. This app will be used for customers to follow the progress of our projects.
 
 # Colors
 
@@ -10,16 +9,12 @@ The accent color is #6657eb.
 
 # Page Structure
 
-In the header section, we have a navigation bar with title a title "Cursos da Code" and a button on the right side to sign in the user (that's the my customer).
+In the header section, we have a navigation bar with title a title "Code Roadmap" centralized.
 
-In the main section, we have a list of course requests that'll be inside a white card with box-shadow. Each course request card will have the following information:
+In the main section, we have a list of projects that'll be inside a white card with box-shadow. Each project card will have the following information:
 - Title
 - Description
-- Number of votes
-- Author
-- Date
 - Status
-- Button to vote for the course request
   
 # Technologies
 
@@ -27,24 +22,19 @@ For this project, we'll be using the following technologies:
 - Tailwind CSS v4.0.0
 - Angular v20.2.1
 - DaisyUI v5
-- Supabase
 
 # Project Structure
 
 The project structure will be the following:
 
 ```
-.
 ├── src
 │   ├── app
-│   │   ├── core // core resources
-│   │   │   ├── <name-of-feature> // feature folder containing resources related to the feature (services, pipes) 
 │   │   ├── features // put pages here
 │   │   │   ├── home // home page folder
 │   │   │   |   ├── routes.ts // file with routes
 │   │   │   |   ├── pages // pages folder
 │   │   │   |   ├── components // shared components folder from home 
-│   │   ├── shared // shared resources should be inside this folder
 ```
 
 Here's the rules: 
@@ -58,4 +48,4 @@ Constraints:
 - Shared resources can depend on core resources.
 - Core resources can not depend on shared resources or features.
 
-Crate only folders that are needed.
+For project's card, create a component to keep its code.
