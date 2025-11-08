@@ -48,6 +48,13 @@ export class HomePage {
       type: ProjectType.Course,
     },
     {
+      title: 'Atualização Testes Automatizados com Angular',
+      description:
+        'Adicionar novos módulos referentes ao Angular 21, Vitest e novos recursos que permitem criar testes muito mais simples e eficientes.',
+      status: ProjectStatus.Planning,
+      type: ProjectType.Course,
+    },
+    {
       title: 'Curso Signal Forms com Angular',
       description:
         'Curso focado em ensinar como utilizar a nova forma de escrever formulários baseados em Signals, conhecida como Signal Forms.',
