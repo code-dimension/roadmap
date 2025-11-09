@@ -1,14 +1,17 @@
 <div class="flex flex-col min-h-screen">
-  <header class="shadow-lg">
-    <nav class="container mx-auto px-4 py-4 flex items-center justify-center">
-      <h1 class="text-xl font-bold text-center">Code Dimension - Roadmap</h1>
+  <header class="shadow-lg flex items-center justify-center">
+    <nav class="py-4 flex items-center w-full max-w-[850px]">
+      <img class="w-12" src="logo-cd-symbol.svg" alt="">
+      <div class="flex justify-center w-full -ml-12">
+        <h1 class="text-xl font-bold text-center">Roadmap</h1>
+      </div>
     </nav>
   </header>
-  <main class="flex-grow container mx-auto px-4 py-8">
+  <main class="flex-grow mx-auto px-4 sm:px-0 py-8 w-full max-w-[850px]">
     <router-outlet></router-outlet>
   </main>
   <footer class="py-4 mt-8">
-    <div class="container mx-auto px-4 text-center text-sm text-gray-500">
+    <div class="mx-auto px-4 text-center text-sm text-gray-500">
       Code Dimension © {{ currentYear }}
     </div>
   </footer>

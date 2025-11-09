@@ -9,7 +9,7 @@ import { Project, ProjectType } from '../interfaces/project';
   imports: [ProjectCardComponent],
   template: `
     <div class="flex justify-center">
-      <div class="flex flex-col gap-6 w-full max-w-[850px]">
+      <div class="flex flex-col gap-6">
         @for (project of projects; track project.title) {
           <app-project-card [project]="project" />
         }
