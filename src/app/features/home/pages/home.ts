@@ -1,89 +1,47 @@
-import { Component } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 import { ProjectCardComponent } from '../components/project-card/project-card.component';
-import { ProjectStatus } from '../enums/project-status';
-import { Project, ProjectType } from '../interfaces/project';
+import { Project } from '../interfaces/project';
+import { SearchComponent } from '../components/search/search.component';
+import { projects } from '../data/projects';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [ProjectCardComponent],
+  imports: [ProjectCardComponent, SearchComponent],
   template: `
+    <div class="flex justify-center lg:justify-start">
+      <app-search [(search)]="search" />
+    </div>
+
     <div class="flex justify-center">
-      <div class="flex flex-col gap-6">
-        @for (project of projects; track project.title) {
+      <div class="flex flex-col gap-6 w-full">
+        @for (project of resolvedProjects(); track project.title) {
           <app-project-card [project]="project" />
+        } @empty {
+          <div class="mt-8  w-full p-8 text-center rounded-lg shadow-lg">
+            Nenhum projeto encontrado
+          </div>
         }
       </div>
     </div>
   `,
 })
 export class HomePage {
-  projects: Project[] = [
-    {
-      title: 'Curso Testes Automatizados com Angular',
-      description:
-        'Curso focado em ensinar de forma profunda e prática como implementar testes unitários, testes de integração e testes de e2e com Angular.',
-      status: ProjectStatus.Completed,
-      type: ProjectType.Course,
-      link: 'https://www.codedimension.com.br/cursos/testes-automatizados/?utm_source=roadmap&utm_medium=organic&utm_campaign=roadmap',
-    },
-    {
-      title: 'Ebook Engenharia de Prompts',
-      description:
-        'Ebook focado em ensinar como criar e utilizar prompts eficientes que tornam os resultados com IA muito mais precisos e relevantes.',
-      status: ProjectStatus.Completed,
-      type: ProjectType.Ebook,
-      link: 'https://hotmart.com/pt-br/marketplace/produtos/dominando-engenharia-de-prompts/B102475688V?sck=roadmap-website_organic',
-    },
-    {
-      title: 'Curso Angular Moderno',
-      description:
-        'Curso focado em ensinar Angular 20+ de forma didática e prática, assim como todas os padrões e melhores práticas que envolvem Angular.',
-      status: ProjectStatus.InProgress,
-      type: ProjectType.Course,
-      link: 'https://www.codedimension.com.br/cursos/angular-moderno/?utm_source=roadmap&utm_medium=organic&utm_campaign=roadmap',
-    },
-    {
-      title: 'Curso Formulários com Angular',
-      description:
-        'Curso focado em ensinar como criar formulários inteligentes com Angular, focando principalmente em Reactive Forms e todos os seus recursos. No curso haverá uma atualização para incluir Signal Forms também, assim que o recurso estiver estável.',
-      status: ProjectStatus.Planning,
-      type: ProjectType.Course,
-    },
-    {
-      title: 'Atualização Testes Automatizados com Angular',
-      description:
-        'Adicionar novos módulos referentes ao Angular 21, Vitest e novos recursos que permitem criar testes muito mais simples e eficientes.',
-      status: ProjectStatus.Planning,
-      type: ProjectType.Course,
-    },
-    {
-      title: 'Curso Signal Forms com Angular',
-      description:
-        'Curso focado em ensinar como utilizar a nova forma de escrever formulários baseados em Signals, conhecida como Signal Forms.',
-      status: ProjectStatus.Planning,
-      type: ProjectType.Course,
-    },
-    {
-      title: 'Curso Desenvolvimento com IA',
-      description:
-        'Curso focado em ensinar como usar IA para desenvolver aplicações Angular utilizando técnicas como Prompt Engineering e Context Engineering.',
-      status: ProjectStatus.Planning,
-      type: ProjectType.Course,
-    },
-    {
-      title: 'Curso Monorepos com Nx',
-      description:
-        'Curso focado em ensinar o que é Nx e como criar monorepositórios com Nx para desenvolvimento de aplicações Angular de grande escala.',
-      status: ProjectStatus.Planning,
-      type: ProjectType.Course,
-    },
-    {
-      title: 'Curso Micro Front-End com Angular',
-      description:
-        'Curso focado em ensinar como utilizar o Angular para construir diferentes tipos de arquiteturas Micro Front-Ends.',
-      status: ProjectStatus.Planning,
-      type: ProjectType.Course,
-    },
-  ];
+  search = signal('');
+
+  resolvedProjects = computed(() => {
+    if (this.search()) {
+      return this.searchForProject(projects, this.search());
+    }
+
+    return projects;
+  });
+
+  private searchForProject(projects: Project[], search: string) {
+    return projects.filter(
+      (project) =>
+        project.title.toLowerCase().includes(search.toLowerCase()) ||
+        project.description.toLowerCase().includes(search.toLowerCase()),
+    );
+  }
 }
